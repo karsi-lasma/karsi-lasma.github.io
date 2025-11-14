@@ -1,1 +1,973 @@
-<p>Çok yakında!<p>
+<!DOCTYPE html>
+
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Karşı-Laşma | Dijital Dergi</title>
+
+    
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+    
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+
+            --color-primary: #192A56;
+
+            --color-secondary: #C0392B;
+
+            --color-accent: #FFC312;
+
+            --color-light-bg: #FFFFFF;
+
+            --color-card-bg: #FFFFFF;
+
+        }
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background-color: var(--color-light-bg);
+
+            color: var(--color-primary);
+
+        }
+
+        .active-link {
+
+            border-bottom: 3px solid var(--color-accent);
+
+            color: var(--color-accent) !important;
+
+            font-weight: 600;
+
+        }
+
+        #mobile-menu {
+
+            transition: transform 0.3s ease-out;
+
+            transform: translateX(100%);
+
+        }
+
+        #mobile-menu.open {
+
+            transform: translateX(0);
+
+        }
+
+        .modern-card {
+
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            border-radius: 0.75rem;
+
+            border: 1px solid rgba(25, 42, 86, 0.1);
+
+        }
+
+        .modern-card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 12px 25px rgba(25, 42, 86, 0.1);
+
+        }
+
+        h1 {
+
+            color: var(--color-primary);
+
+        }
+
+        h2, h3 {
+
+            color: var(--color-secondary);
+
+        }
+
+        .text-primary-dark {
+
+            color: var(--color-primary);
+
+        }
+
+        .logo-img {
+
+            max-width: 60px;
+
+            max-height: 60px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin-right: 0.75rem;
+
+        }
+
+        .carousel-slide {
+
+            flex-shrink: 0;
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 320px;
+
+            padding: 2rem;
+
+        }
+
+        .carousel-dots span {
+
+            transition: background-color 0.3s;
+
+        }
+
+        .btn-primary {
+
+            background-color: var(--color-secondary);
+
+            color: white;
+
+            font-weight: bold;
+
+            padding: 0.75rem 1.75rem;
+
+            border-radius: 9999px;
+
+            transition: background-color 0.3s, transform 0.2s;
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .btn-primary:hover {
+
+            background-color: #A63024;
+
+            transform: translateY(-2px);
+
+        }
+
+        .btn-accent {
+
+            background-color: var(--color-accent);
+
+            color: var(--color-primary);
+
+            font-weight: bold;
+
+            padding: 0.75rem 1.75rem;
+
+            border-radius: 9999px;
+
+            transition: background-color 0.3s, transform 0.2s;
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .btn-accent:hover {
+
+            background-color: #D4A30F;
+
+            transform: translateY(-2px);
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+<header class="bg-white shadow-lg sticky top-0 z-10 border-b-2 border-primary-dark">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex justify-between items-center h-28"> 
+
+<a href="#" onclick="navigate('home')" class="flex items-center text-xl font-extrabold text-primary-dark transition hover:text-[#C0392B]">
+
+                    
+
+<img src="WhatsApp Image 2025-11-12 at 15.36.02-Photoroom.jpg" alt="Karşı-Laşma Logo" class="logo-img">
+
+                    <span class="text-2xl tracking-wide">KARŞI-LAŞMA</span>
+
+                </a>
+
+                
+
+<nav class="hidden md:flex space-x-6 text-primary-dark font-medium text-lg"> 
+
+<a href="#" onclick="navigate('home')" class="nav-link py-5 px-1 hover:text-secondary transition duration-150">Ana Sayfa</a>
+
+                    <a href="#" onclick="navigate('oku')" class="nav-link py-5 px-1 hover:text-secondary transition duration-150">Oku</a>
+
+                    <a href="#" onclick="navigate('misyonumuz')" class="nav-link py-5 px-1 hover:text-secondary transition duration-150">Misyonumuz</a>
+
+                    <a href="#" onclick="navigate('hakkimizda')" class="nav-link py-5 px-1 hover:text-secondary transition duration-150">Hakkımızda</a>
+
+                    <a href="#" onclick="navigate('iletisim')" class="nav-link py-5 px-1 hover:text-secondary transition duration-150">İletişim</a>
+
+                </nav>
+
+                
+
+<button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-primary-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        
+
+<div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl md:hidden z-20">
+
+            <div class="flex justify-end p-6">
+
+                <button id="close-mobile-menu" class="text-primary-dark hover:text-secondary">
+
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+
+                </button>
+
+            </div>
+
+            <nav class="flex flex-col space-y-4 p-4 text-primary-dark">
+
+                <a href="#" onclick="navigate('home')" class="mobile-nav-link text-lg p-3 rounded-md hover:bg-gray-100">Ana Sayfa</a>
+
+                <a href="#" onclick="navigate('oku')" class="mobile-nav-link text-lg p-3 rounded-md hover:bg-gray-100">Oku</a>
+
+                <a href="#" onclick="navigate('misyonumuz')" class="mobile-nav-link text-lg p-3 rounded-md hover:bg-gray-100">Misyonumuz</a>
+
+                <a href="#" onclick="navigate('hakkimizda')" class="mobile-nav-link text-lg p-3 rounded-md hover:bg-gray-100">Hakkımızda</a>
+
+                <a href="#" onclick="navigate('iletisim')" class="mobile-nav-link text-lg p-3 rounded-md hover:bg-gray-100">İletişim</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    
+
+<main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        
+
+<section id="home-page" class="page-content space-y-12 pt-8">
+
+            <h1 class="text-4xl sm:text-4xl font-extrabold text-center mb-10 tracking-tight leading-tight">Fikirlerin, Duyguların ve Yaratıcılığın Kesişimi</h1> 
+
+<div class="carousel-container relative w-full overflow-hidden modern-card bg-primary-dark p-6 md:p-10 shadow-xl border-b-4 border-accent"> 
+
+<div id="carousel-slides" class="flex transition-transform duration-500 ease-in-out">
+
+                    
+
+<div class="carousel-slide text-center p-4">
+
+                        <div class="max-w-3xl mx-auto space-y-4"> 
+
+<h2 class="text-3xl sm:text-3xl font-extrabold text-accent tracking-wider leading-tight">KARŞI-LAŞMA NEDİR?</h2> 
+
+<p class="text-white text-lg leading-relaxed">
+
+                                Şevkiye Özel Fen Lisesi öğrencileri olarak, bilim, sanat, felsefe ve edebiyatın derinliklerinde kaybolmayı seven gençlerin buluşma noktasıdır. Her sayıda, güncel konulara farklı disiplinlerden pencere açan içerikler sunuyoruz.
+
+                            </p>
+
+                            <button onclick="navigate('hakkimizda')" class="mt-4 btn-primary">
+
+                                Daha Fazla Bilgi İçin (Hakkımızda)
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    
+
+<div class="carousel-slide text-center p-4">
+
+                        <div class="max-w-3xl mx-auto space-y-4">
+
+                            <h2 class="text-3xl sm:text-3xl font-extrabold text-accent tracking-wider leading-tight">MİSYONUMUZ</h2>
+
+                            <p class="text-white text-lg leading-relaxed">
+
+                                Misyonumuz; öğrencilerin eleştirel düşünme, yaratıcılık ve özgür ifade becerilerini geliştirecekleri, zengin ve çok sesli bir akademik platform oluşturmaktır. Bilgiye derinlemesine bakmayı teşvik ediyoruz.
+
+                            </p>
+
+                            <button onclick="navigate('misyonumuz')" class="mt-4 btn-accent">
+
+                                Misyonumuzu Keşfet
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    
+
+<div class="carousel-slide text-center p-4">
+
+                        <div class="max-w-3xl mx-auto space-y-4">
+
+                            <h2 class="text-3xl sm:text-3xl font-extrabold text-accent tracking-wider leading-tight">BİZİMLE İLETİŞİME GEÇİN</h2>
+
+                            <p class="text-white text-lg leading-relaxed">
+
+                                Dergi ekibine katılmak, yazı göndermek veya görüşlerinizi iletmek mi istiyorsunuz? Sizinle tanışmayı ve yeni fikirleri keşfetmeyi sabırsızlıkla bekliyoruz!
+
+                            </p>
+
+                            <button onclick="navigate('iletisim')" class="mt-4 btn-primary">
+
+                                Bize Ulaşın (İletişim)
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+
+<div id="carousel-dots" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+
+                    <span class="w-3 h-3 bg-white rounded-full cursor-pointer opacity-50" data-slide="0"></span>
+
+                    <span class="w-3 h-3 bg-white rounded-full cursor-pointer opacity-50" data-slide="1"></span>
+
+                    <span class="w-3 h-3 bg-white rounded-full cursor-pointer opacity-50" data-slide="2"></span>
+
+                </div>
+
+            </div>
+
+            
+
+<div class="grid md:grid-cols-3 gap-8">
+
+                
+
+<article class="bg-card-bg modern-card shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+
+                    <img src="https://placehold.co/600x400/192A56/FFFFFF?text=2.%20SAYI%20YAKINDA" alt="Karşı-Laşma 2. Sayısı İle Yakında Sizlerle!" onerror="this.src='https://placehold.co/600x400/192A56/FFFFFF?text=2.%20SAYI%20YAKINDA'" class="w-full h-48 object-cover">
+
+                    <div class="p-6 space-y-4">
+
+                        <h3 class="text-xl font-bold tracking-tight">Karşı-Laşma 2. Sayısı İle Yakında Sizlerle!</h3>
+
+                        <p class="text-primary-dark text-sm">Geçen sene ilk sayısı yayınlanan dergimiz hız kesmeden ilk günki heyecanı ile devam ediyor! Bilim, sanat, bilişim ve diğer alanlardaki bilgilerin zengin birleşiminden oluşturduğumuz dergimiz öğrencilerimizin en yüksek kaliteli yazıları ile yakında sizlerle!</p>
+
+                        <blockquote class="text-right border-l-4 border-secondary pl-4 italic text-sm text-gray-700">
+
+                            <p>"Bütün ümidim gençliktedir."</p>
+
+                            <footer class="mt-1 font-semibold">- M. Kemal ATATÜRK</footer>
+
+                        </blockquote>
+
+                    </div>
+
+                </article>
+
+                
+
+<article class="bg-card-bg modern-card shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+
+                    <img src="https://placehold.co/600x400/A8A8A8/192A56?text=10%20KASIM" alt="10 Kasım" onerror="this.src='https://placehold.co/600x400/A8A8A8/192A56?text=10%20KASIM'" class="w-full h-48 object-cover">
+
+                    <div class="p-6 space-y-4">
+
+                        <h3 class="text-xl font-bold tracking-tight">Bu 10 Kasım'da da Atamızı Rahmetle Anıyoruz</h3>
+
+                        <p class="text-primary-dark text-sm">Cumhuriyetimizin kurucusu Ulu Önder Mustafa Kemal Atatürk'ün aramızdan ayrılışının 87. yılında da Atamızı ve silah arkadaşlarını saygı ve rahmetle anıyoruz.</p>
+
+                        <blockquote class="text-right border-l-4 border-secondary pl-4 italic text-sm text-gray-700">
+
+                            <p>"Benim naciz vücudum elbet bir gün toprak olacaktır ancak; Türkiye Cumhuriyeti ilelebet payidar kalacaktır."</p>
+
+                            <footer class="mt-1 font-semibold">- M. Kemal ATATÜRK</footer>
+
+                        </blockquote>
+
+                    </div>
+
+                </article>
+
+                
+
+<article class="bg-card-bg modern-card shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+
+                    <img src="https://placehold.co/600x400/FFC312/192A56?text=29%20EKİM" alt="29 Ekim" onerror="this.src='https://placehold.co/600x400/FFC312/192A56?text=29%20EKİM'" class="w-full h-48 object-cover">
+
+                    <div class="p-6 space-y-4">
+
+                        <h3 class="text-xl font-bold tracking-tight">29 Ekim Cumhuriyet Bayramınız Kutlu Olsun!</h3>
+
+                        <p class="text-primary-dark text-sm">Cumhuriyemizin kuruluşunun 102. yılı kutlu olsun! Başta bu özel günü bize armağan eden Ulu Önder Mustafa Kemal Atatürk'ü ve silah arkadaşlarını rahmetle anıyoruz. Bu özel günde emeği geçen tüm öğretmen ve öğrenci arkadaşlarıma en içten dileklerimi iletiyorum.</p>
+
+                        <blockquote class="text-right border-l-4 border-secondary pl-4 italic text-sm text-gray-700">
+
+                            <p>"Ey yükselen yeni nesil! İstikbal sizindir. Cumhuriyeti biz kurduk, onu devam ettirecek sizlersiniz."</p>
+
+                            <footer class="mt-1 font-semibold">- M. Kemal ATATÜRK</footer>
+
+                        </blockquote>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        
+
+<section id="misyonumuz-page" class="page-content hidden space-y-12 pt-8">
+
+            <h1 class="text-4xl sm:text-4xl font-extrabold text-center tracking-tight mb-10 leading-tight">Misyonumuz: Bilgiye Derinlemesine Bakış</h1>
+
+            <div class="bg-card-bg p-8 modern-card shadow-xl border-l-8 border-secondary">
+
+                <p class="text-lg text-primary-dark leading-relaxed">
+
+                    Okulumuzun nabzını tutan, öğrenci sesini duyuran bir platform olmak temel misyonumuzdur. Öğrencilerimizin yaratıcılığını, düşüncelerini ve yeteneklerini özgürce sergileyebilecekleri bir alan yaratarak, okul topluluğumuzu birleştirmeyi ve güçlendirmeyi hedefliyoruz.
+
+                </p>
+
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+
+                <div class="bg-card-bg p-6 modern-card shadow-md border-t-4 border-accent">
+
+                    <h2 class="text-2xl font-semibold mb-3 tracking-tight">İfade Özgürlüğü ve Yaratıcılık</h2>
+
+                    <p class="text-primary-dark">Her öğrencinin kendini özgürce ifade edebileceği bir platform sunuyoruz. Yazılardan fotoğraflara, çizimlerden şiirlere kadar her türlü yaratıcı üretime yer veriyor, öğrencilerimizin yeteneklerini keşfetmelerine ve geliştirmelerine olanak tanıyoruz.</p>
+
+                </div>
+
+                <div class="bg-card-bg p-6 modern-card shadow-md border-t-4 border-accent">
+
+                    <h2 class="text-2xl font-semibold mb-3 tracking-tight">Topluluk ve Bağlantı</h2>
+
+                    <p class="text-primary-dark">Farklı sınıflardan, farklı ilgi alanlarından öğrencileri bir araya getirerek güçlü bir okul topluluğu oluşturuyoruz. Dergimiz, öğrenciler arasında diyalog ve işbirliğini teşvik eden bir köprü görevi üstleniyor.</p>
+
+                </div>
+
+                <div class="bg-card-bg p-6 modern-card shadow-md border-t-4 border-accent">
+
+                    <h2 class="text-2xl font-semibold mb-3 tracking-tight">Bilgi ve Farkındalık</h2>
+
+                    <p class="text-primary-dark">Okul haberlerinden güncel konulara, bilimden sanata kadar geniş bir yelpazede kaliteli içerikler sunarak öğrencilerimizin bilgi dağarcığını genişletiyoruz. Eleştirel düşünmeyi ve bilinçli yurttaşlığı destekliyoruz.</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        
+
+<section id="iletisim-page" class="page-content hidden space-y-12 pt-8">
+
+            <h1 class="text-4xl sm:text-4xl font-extrabold text-center tracking-tight mb-10 leading-tight">Okulumuz ve Dergi Ekibimiz İle İletişime Geçin</h1>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                
+
+<div class="kutu bg-card-bg p-6 modern-card shadow-lg text-center border-t-4 border-secondary">
+
+                    <h3 class="text-2xl font-semibold mb-2 tracking-tight">Adres</h3>
+
+                    <p class="text-primary-dark text-sm">Şevkiye Özel Fen Lisesi, Akademi Mah. Bilim Cad. No:10, İstanbul</p>
+
+                </div>
+
+                
+
+                
+
+<div class="kutu bg-card-bg p-6 modern-card shadow-lg text-center border-t-4 border-secondary">
+
+                    <h3 class="text-2xl font-semibold mb-2 tracking-tight">Telefon</h3>
+
+                    <p class="text-primary-dark text-sm font-mono">(0212) 555 00 01</p>
+
+                </div>
+
+                
+
+<div class="kutu bg-card-bg p-6 modern-card shadow-lg text-center border-t-4 border-secondary">
+
+                    <h3 class="text-2xl font-semibold mb-2 tracking-tight">E-Posta</h3>
+
+                    <p class="text-primary-dark text-sm font-mono break-words">iletisim@karsilasma.com</p>
+
+                </div>
+
+                
+
+<div class="kutu bg-card-bg p-6 modern-card shadow-lg border-t-4 border-secondary">
+
+                    <h3 class="text-2xl font-semibold mb-2 tracking-tight text-center">Ulaşabileceğiniz Saatler</h3>
+
+                    <ul class="text-primary-dark text-sm space-y-1 list-disc list-inside">
+
+                        <li>Hafta İçi: 09.00 - 17.00</li>
+
+                        <li>Hafta Sonu: Kapalıyız</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            
+
+<div class="bg-gray-300 h-64 modern-card shadow-inner flex items-center justify-center">
+
+                <p class="text-gray-600 font-medium">Okul Konumu (Harita Placeholder)</p>
+
+            </div>
+
+        </section>
+
+        
+
+<section id="hakkimizda-page" class="page-content hidden space-y-12 pt-8">
+
+            <h1 class="text-4xl sm:text-4xl font-extrabold text-center tracking-tight mb-10 leading-tight">Hakkımızda: Fikirlerin Buluşma Noktası</h1>
+
+            
+
+            <div class="bg-card-bg p-8 modern-card shadow-xl border-l-8 border-accent">
+
+                <p class="text-lg text-primary-dark leading-relaxed indent-8">
+
+                    Biz Şevkiye Özel Fen Lisesi öğrencileri olarak, fikirlerin, duyguların ve yaratıcılığın kesiştiği bir noktada **KARŞI-LAŞMA** adını verdiğimiz bu dergiyi hayata geçirdik. Her satırında emeğimiz, her sayfasında merakımız var. Bilimi keşfetmekten, sanatı hissetmekten ve kültürü anlamaktan keyif alan gençler olarak, hem birbirimizle hem de okurlarımızla düşüncelerde “karşılaşmayı” amaçladık.
+
+                </p>
+
+                <p class="text-lg text-primary-dark leading-relaxed mt-4 indent-8">
+
+                    Yazılarından tasarımına kadar her detayı Şevkiye Özel Fen Lisesi öğrencileri tarafından hazırlanmış bu dergi, öğrenmenin sadece ders kitaplarında değil; paylaşımda, üretimde ve hayal gücünde de var olduğunu hatırlatıyor. Bizim için **KARŞI-LAŞMA**, bir dergiden çok; bir fikir buluşması, bir öğrencilik yolculuğunun izleri ve birlikte üretmenin mutluluğudur.
+
+                </p>
+
+                <blockquote class="mt-8 pt-4 border-t border-gray-200 text-center text-sm text-gray-500">
+
+                    <p>"Öğrenme ve paylaşma yolculuğumuzda siz de bizimle karşılaşın."</p>
+
+                </blockquote>
+
+            </div>
+
+            
+
+            <div class="text-center">
+
+                
+
+<img src="WhatsApp Image 2025-11-12 at 15.36.02-Photoroom.jpg" alt="Karşı-Laşma Dergi Ekibi" class="inline-block w-48 h-48 rounded-full object-cover shadow-xl border-4 border-secondary p-1">
+
+                <p class="mt-4 text-xl font-semibold text-primary-dark">Şevkiye Özel Fen Lisesi Dergi Ekibi</p>
+
+            </div>
+
+        </section>
+
+        
+
+<section id="oku-page" class="page-content hidden text-center p-10 bg-card-bg modern-card shadow-lg">
+
+            <h1 class="text-4xl font-extrabold tracking-tight mb-4 leading-tight">Oku</h1>
+
+            <p class="text-primary-dark">Dergi Sayılarına Ait İçerikler Yakında Burada Olacaktır. Takipte Kalın!</p>
+
+        </section>
+
+    </main>
+
+    
+
+<footer class="bg-primary-dark text-white py-8 mt-16">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
+
+            
+
+<div class="space-y-2 text-center md:text-left">
+
+                <h2 class="footer-yazi text-sm">
+
+                    Bu web sitesi Şevkiye Özel Fen Lisesi öğrencileri tarafından <span class="text-secondary">❤️</span> ile yapıldı.
+
+                </h2>
+
+                <h2 class="footer-yazi text-xs text-gray-400">
+
+                    © 2025 KARŞI-LAŞMA Dijital Dergi. Tüm Hakları Saklıdır.
+
+                </h2>
+
+            </div>
+
+            
+
+<div class="flex space-x-6 text-gray-400">
+
+                
+
+<span class="footer-span">
+
+                    <a href="https://github.com/karsi-lasma" target="_blank" class="flex items-center space-x-1 hover:text-accent">
+
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.646-.217.646-.484 0-.233-.007-.866-.014-1.691-2.782.601-3.37-1.34-3.37-1.34-.454-1.15-1.107-1.458-1.107-1.458-.905-.623.068-.61.068-.61 1.002.07 1.531 1.029 1.531 1.029.892 1.528 2.341 1.087 2.91.828.092-.64.351-1.087.636-1.334-2.22-.25-4.555-1.11-4.555-4.93 0-1.092.39-1.983 1.029-2.687-.103-.254-.446-1.27.097-2.646 0 0 .84-.27 2.75 1.023A9.553 9.553 0 0112 5.688c.85.006 1.70.112 2.5.324 1.909-1.293 2.747-1.023 2.747-1.023.543 1.376.2 2.392.1 2.646.64.704 1.025 1.595 1.025 2.687 0 3.828-2.339 4.674-4.566 4.922.359.31.678.924.678 1.855 0 1.334-.012 2.41-.012 2.74 0 .267.143.578.651.483C19.136 20.198 22 16.443 22 12.017 22 6.484 17.523 2 12 2z" clip-rule="evenodd"></path></svg>
+
+                        <span class="text-sm hidden sm:inline">GitHub</span>
+
+                    </a>
+
+                </span>
+
+                
+
+<span class="footer-span">
+
+                    <a href="https://www.youtube.com/@karsilasma" target="_blank" class="flex items-center space-x-1 hover:text-accent">
+
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.615 3.195A3.272 3.272 0 0017.378 2c-3.141-.073-6.282-.073-9.423 0A3.272 3.272 0 005.625 3.195C3.39 4.34 2.128 6.643 2 12c.128 5.357 1.39 7.66 3.625 8.805a3.272 3.272 0 002.237 1.195c3.141.073 6.282.073 9.423 0a3.272 3.272 0 002.237-1.195C20.61 19.357 21.872 17.054 22 12c-.128-5.063-1.39-7.366-3.625-8.805zM9 16.892V7.108L16.273 12 9 16.892z"></path></svg>
+
+                        <span class="text-sm hidden sm:inline">YouTube</span>
+
+                    </a>
+
+                </span>
+
+                
+
+<span class="footer-span">
+
+                    <a href="https://www.instagram.com/karsi_lasma" target="_blank" class="flex items-center space-x-1 hover:text-accent">
+
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.2 4.145c.783 0 1.418.635 1.418 1.418s-.635 1.418-1.418 1.418-1.418-.635-1.418-1.418.635-1.418 1.418-1.418zm-6.4 0c.783 0 1.418.635 1.418 1.418s-.635 1.418-1.418 1.418-1.418-.635-1.418-1.418.635-1.418 1.418-1.418zm3.2 2.836c-2.454 0-4.445 1.991-4.445 4.445s1.991 4.445 4.445 4.445 4.445-1.991 4.445-4.445-1.991-4.445-4.445-4.445zm0 6.667c-1.229 0-2.222-.993-2.222-2.222s.993-2.222 2.222-2.222 2.222.993 2.222 2.222-.993 2.222-2.222 2.222z"></path></svg>
+
+                        <span class="text-sm hidden sm:inline">Instagram</span>
+
+                    </a>
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script>
+
+        let currentPage = 'home';
+
+        const pages = ['home', 'oku', 'misyonumuz', 'hakkimizda', 'iletisim'];
+
+        
+
+        let currentSlide = 0;
+
+        let slideInterval;
+
+        const SLIDE_DURATION = 7000;
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const hash = window.location.hash.substring(1);
+
+            if (pages.includes(hash)) {
+
+                currentPage = hash;
+
+            }
+
+            showPage(currentPage);
+
+            setupEventListeners();
+
+            
+
+            if (currentPage === 'home') {
+
+                initCarousel();
+
+            }
+
+        });
+
+        function setupEventListeners() {
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+
+            const closeMenuBtn = document.getElementById('close-mobile-menu');
+
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            const carouselDots = document.getElementById('carousel-dots');
+
+            mobileMenuBtn.addEventListener('click', () => {
+
+                mobileMenu.classList.add('open');
+
+            });
+
+            closeMenuBtn.addEventListener('click', () => {
+
+                mobileMenu.classList.remove('open');
+
+            });
+
+            mobileLinks.forEach(link => {
+
+                link.addEventListener('click', () => {
+
+                    mobileMenu.classList.remove('open');
+
+                });
+
+            });
+
+            if (carouselDots) {
+
+                carouselDots.addEventListener('click', (e) => {
+
+                    if (e.target.dataset.slide) {
+
+                        const slideIndex = parseInt(e.target.dataset.slide);
+
+                        moveToSlide(slideIndex);
+
+                        resetSlideInterval();
+
+                    }
+
+                });
+
+            }
+
+        }
+
+        function showPage(pageId) {
+
+            clearInterval(slideInterval);
+
+            document.querySelectorAll('.page-content').forEach(section => {
+
+                section.classList.add('hidden');
+
+            });
+
+            const targetSection = document.getElementById(pageId + '-page');
+
+            if (targetSection) {
+
+                targetSection.classList.remove('hidden');
+
+                currentPage = pageId;
+
+                window.location.hash = pageId;
+
+            } else {
+
+                document.getElementById('home-page').classList.remove('hidden');
+
+                currentPage = 'home';
+
+                window.location.hash = 'home';
+
+            }
+
+            updateNavigationLinks(pageId);
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (currentPage === 'home') {
+
+                initCarousel();
+
+            }
+
+        }
+
+        function navigate(page) {
+
+            showPage(page);
+
+        }
+
+        function initCarousel() {
+
+            const slidesContainer = document.getElementById('carousel-slides');
+
+            if (!slidesContainer) return;
+
+            const slides = slidesContainer.querySelectorAll('.carousel-slide');
+
+            const totalSlides = slides.length;
+
+            if (totalSlides === 0) return;
+
+            updateCarousel(currentSlide);
+
+            slideInterval = setInterval(() => {
+
+                currentSlide = (currentSlide + 1) % totalSlides;
+
+                moveToSlide(currentSlide);
+
+            }, SLIDE_DURATION);
+
+        }
+
+        function moveToSlide(index) {
+
+            const slidesContainer = document.getElementById('carousel-slides');
+
+            const slides = slidesContainer.querySelectorAll('.carousel-slide');
+
+            const totalSlides = slides.length;
+
+            if (index < 0 || index >= totalSlides) return;
+
+            currentSlide = index;
+
+            const offset = -currentSlide * 100;
+
+            slidesContainer.style.transform = `translateX(${offset}%)`;
+
+            updateCarousel(currentSlide);
+
+        }
+
+        function updateCarousel(activeIndex) {
+
+            const dots = document.querySelectorAll('#carousel-dots span');
+
+            dots.forEach((dot, index) => {
+
+                if (index === activeIndex) {
+
+                    dot.classList.remove('opacity-50', 'bg-white');
+
+                    dot.classList.add('bg-accent');
+
+                } else {
+
+                    dot.classList.add('opacity-50', 'bg-white');
+
+                    dot.classList.remove('bg-accent');
+
+                }
+
+            });
+
+        }
+
+        function resetSlideInterval() {
+
+            clearInterval(slideInterval);
+
+            slideInterval = setInterval(() => {
+
+                const totalSlides = document.querySelectorAll('#carousel-slides .carousel-slide').length;
+
+                currentSlide = (currentSlide + 1) % totalSlides;
+
+                moveToSlide(currentSlide);
+
+            }, SLIDE_DURATION);
+
+        }
+
+        function updateNavigationLinks(activePageId) {
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+
+                link.classList.remove('active-link');
+
+                const linkTargetMatch = link.onclick.toString().match(/navigate\('(\w+)'\)/);
+
+                const linkTarget = linkTargetMatch ? linkTargetMatch[1] : null;
+
+                if (linkTarget === activePageId) {
+
+                    link.classList.add('active-link');
+
+                }
+
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+
+                link.classList.remove('active-link', 'bg-gray-100', 'font-semibold');
+
+                const linkTargetMatch = link.onclick.toString().match(/navigate\('(\w+)'\)/);
+
+                const linkTarget = linkTargetMatch ? linkTargetMatch[1] : null;
+
+                if (linkTarget === activePageId) {
+
+                    link.classList.add('active-link', 'bg-gray-100', 'font-semibold');
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
